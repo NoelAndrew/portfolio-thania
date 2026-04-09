@@ -57,7 +57,7 @@ const portfolioData = {
   name: "Thania Laura Gayol Zago",
   description:
     "Motivada para llevar mi carrera a un nuevo nivel, busco empleo en un estudio de creación de contenido digital para redes sociales. Especializada en análisis, desde la aprobación de anteproyectos hasta la selección del contenido y la entrega final de campañas. Éxito demostrado en el liderazgo de equipos multidisciplinares para lograr las metas de cada proyecto y un excelente nivel de satisfacción del cliente.",
-  photo: "/perfil.jpeg", // Reemplázala con la ruta real de la imagen
+  photo: "/perfil.JPG", // Reemplázala con la ruta real de la imagen
   education: {
     degree: "Licenciatura en Comunicación",
     university: "Benemérita Universidad Autónoma de Puebla",
