@@ -58,7 +58,7 @@ const portfolioData = {
   experience: [
     {
       role: "Aux Contable",
-      company: "SALMIGI",
+      company: "SALMIG",
       duration: "Febrero 2024 - Febrero 2025",
       tasks: [
         "Administración de 2 restaurantes.",
