@@ -1,0 +1,24 @@
+{
+  "colors": {
+    "background": "#A7B7DF",
+    "paper": "#F6F2EA",
+    "paperShadow": "rgba(0,0,0,0.12)",
+    "ink": "#222222",
+    "mutedInk": "#5F6470",
+    "accentBlue": "#79A9D3",
+    "envelopeDark": "#3A3A42",
+    "lineSoft": "#D8D1C6",
+    "lace": "#F7F4F0"
+  },
+  "recommendedFonts": {
+    "titleScript": "Cormorant Garamond / Great Vibes / Allura",
+    "editorialSerif": "Cormorant Garamond / EB Garamond",
+    "bodySerif": "Libre Baskerville / Crimson Text",
+    "capsSans": "Work Sans / Inter"
+  },
+  "layoutHints": {
+    "hero": "dark envelope with oversized script title",
+    "aboutCard": "paper note pinned over lace strip",
+    "profileSection": "book/spread look with left stacked cards and right editorial text"
+  }
+}

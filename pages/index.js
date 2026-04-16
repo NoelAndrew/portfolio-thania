@@ -1,37 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { FaInstagram } from "react-icons/fa";
-import { FaFacebook } from "react-icons/fa";
+import { FaInstagram, FaFacebook } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { IoIosMail } from "react-icons/io";
 import { FaPhone } from "react-icons/fa6";
 import { useState } from "react";
 import Head from "next/head";
-
-export const metadata = {
-  title: "Portafolio Thania Zago",
-  description: "Explora el portafolio de Thania Laura Gayol Zago.",
-  openGraph: {
-    title: "Portafolio de Thania Zago!",
-    description: "Explora el portafolio de Thania Laura Gayol Zago.",
-    images: [
-      {
-        url: "/img/1.jpeg",
-        width: 1200,
-        height: 630,
-        alt: "Portafolio Thania Zago",
-      },
-    ],
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Portafolio Thania Zago!",
-    description: "Explora el portafolio de Thania Laura Gayol Zago.",
-    images: ["/img/1.jpg"],
-  },
-};
 
 const galleryImages = [
   "/img/1.jpeg",
@@ -50,19 +25,36 @@ const galleryImages = [
   "/img/14.jpeg",
   "/img/15.jpeg",
   "/img/16.jpeg",
-
 ];
 
 const portfolioData = {
   name: "Thania Laura Gayol Zago",
+  nickname: "Thania",
   description:
-    "Motivada para llevar mi carrera a un nuevo nivel, busco empleo en un estudio de creación de contenido digital para redes sociales. Especializada en análisis, desde la aprobación de anteproyectos hasta la selección del contenido y la entrega final de campañas. Éxito demostrado en el liderazgo de equipos multidisciplinares para lograr las metas de cada proyecto y un excelente nivel de satisfacción del cliente.",
-  photo: "/perfil.JPG", // Reemplázala con la ruta real de la imagen
+    "Motivada para llevar mi carrera a un nuevo nivel, busco empleo en un estudio de creación de contenido digital para redes sociales. Especializada en análisis, desde la aprobación de anteproyectos hasta la selección del contenido y la entrega final de campañas.",
+  about:
+    "Soy egresada de Comunicación con interés en creación de contenido, branding, diseño visual y redes sociales. Disfruto desarrollar ideas visuales con estética cuidada y narrativa clara. Busco oportunidades donde pueda crecer, aprender y aportar creatividad en proyectos digitales.",
+  photo: "/perfil.JPG",
   education: {
     degree: "Licenciatura en Comunicación",
     university: "Benemérita Universidad Autónoma de Puebla",
     years: "2019 - 2024",
   },
+  strengths: [
+    "Creatividad visual y conceptual",
+    "Organización de contenido",
+    "Trabajo en equipo",
+    "Atención al detalle",
+    "Comunicación efectiva",
+  ],
+  software: ["CapCut", "Canva", "Photoshop", "Illustrator", "Excel", "Word"],
+  skills: [
+    "Creación de contenido",
+    "Edición de video",
+    "Diseño para redes sociales",
+    "Branding básico",
+    "Planeación de contenido",
+  ],
   experience: [
     {
       role: "Aux Contable",
@@ -72,8 +64,8 @@ const portfolioData = {
         "Administración de 2 restaurantes.",
         "Reclutar personal.",
         "Facturación y cobranza.",
-        "Recopilación de datos para Estados de Resultados",
-        "Manejo de Excel para contabilidad",
+        "Recopilación de datos para Estados de Resultados.",
+        "Manejo de Excel para contabilidad.",
       ],
     },
     {
@@ -83,32 +75,32 @@ const portfolioData = {
       tasks: [
         "Manejo de redes sociales.",
         "Elaboración de videos y contenido.",
-        "Elaboración de videos Tik Tok e Instagram Reels.",
-        "Elaboración de calendarios para contenido de mes",
-        "Reuniones con clientes para entender sus necesidades",
+        "Videos para TikTok e Instagram Reels.",
+        "Planeación de calendarios mensuales.",
+        "Reuniones con clientes para entender sus necesidades.",
       ],
     },
     {
-      role: "Secretaria/Recepcionista",
+      role: "Secretaria / Recepcionista",
       company: "Imperiomex",
       duration: "Agosto 2021 - Abril 2022",
       tasks: [
-        "Manejo de datos personales",
-        "Atencion al cliente conforme a créditos infonavit",
-        "Atencion por Facebook",
-        "Reclutar personal",
-        "Manejo de Excel y Word",
+        "Manejo de datos personales.",
+        "Atención al cliente conforme a créditos Infonavit.",
+        "Atención por Facebook.",
+        "Reclutamiento de personal.",
+        "Manejo de Excel y Word.",
       ],
     },
     {
-      role: "Community manager",
+      role: "Community Manager",
       company: "Mezcal Don Porfirio",
-      duration: "Julio 2025 - ",
+      duration: "Julio 2025 - Actualidad",
       tasks: [
-        "Creación de contenido multimedia para marca de Mezcal.",
-        "Creación de logotipos y de banners publicitarias",
-        "Manejo y creación de redes de la marca",
-        "Administración de información empresarial de la marca",
+        "Creación de contenido multimedia para la marca.",
+        "Diseño de logotipos y banners publicitarios.",
+        "Manejo y creación de redes sociales.",
+        "Administración de información empresarial.",
       ],
     },
   ],
@@ -126,206 +118,342 @@ const portfolioData = {
 export default function Portfolio() {
   const [selectedImage, setSelectedImage] = useState(null);
 
+  const copyToClipboard = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      alert("Copiado al portapapeles");
+    } catch (error) {
+      console.error("No se pudo copiar", error);
+    }
+  };
+
   return (
     <>
       <Head>
-        <title>Portafolio Thania Zago!</title>
+        <title>Portafolio Thania Zago</title>
         <meta
           name="description"
           content="Explora el portafolio de Thania Laura Gayol Zago."
         />
-        <meta property="og:title" content="Portafolio Thania Zago!" />
-        <meta
-          property="og:description"
-          content="Explora el portafolio de Thania Laura Gayol Zago."
-        />
-        <meta property="og:image" content="/img/1.jpg" />
-        <meta property="og:type" content="website" />
       </Head>
-      <div className="container mx-auto px-4 py-10">
-        {/* Header */}
-        <div className="bg-white text-center rounded-lg p-4 mt-5 shadow-md transition-transform duration-300 hover:scale-105 border border-[#8C85F7]">
-          <div className="h-40 w-40 mx-auto bg-blue-500 rounded-full overflow-hidden flex items-center justify-center">
-            <Image
-              src={portfolioData.photo}
-              width={150}
-              height={150}
-              className="object-cover w-full h-full"
-              alt={portfolioData.name}
-            />
-          </div>
-          <h1 className="text-3xl font-bold mt-4 text-[#2C1D67]">
-            {portfolioData.name}
-          </h1>
-          <p className="text-gray-600 max-w-lg mx-auto">
-            {portfolioData.description}
-          </p>
-        </div>
 
-        {/* Educación */}
-        <h2 className="text-2xl font-semibold text-[#2C1D67] mt-5">
-          Formación Académica
-        </h2>
+      <main className="min-h-screen bg-[#aeb8d4] px-4 py-8 md:px-8">
+        <div className="mx-auto max-w-6xl space-y-10">
+          {/* HERO */}
+          <section className="relative overflow-hidden rounded-[28px] shadow-2xl">
+            <div className="relative min-h-[260px] md:min-h-[360px] w-full bg-[#2e2c35]">
+              <img
+                src="/assets/portfolio/envelope-hero.svg"
+                alt="Hero envelope"
+                className="absolute inset-0 h-full w-full object-cover opacity-90"
+              />
 
-        <div className="text-center bg-white rounded-lg p-4 shadow-md mt-5 border border-[#8C85F7]">
-          <p className="text-lg text-[#2C1D67]">
-            {portfolioData.education.degree}
-          </p>
-          <p className="text-gray-500">{portfolioData.education.university}</p>
-          <p className="text-gray-500">{portfolioData.education.years}</p>
-        </div>
+              <div className="relative z-10 flex min-h-[260px] md:min-h-[360px] flex-col justify-between p-6 md:p-10 text-white">
+                <div className="flex items-start justify-between text-[11px] uppercase tracking-[0.25em] text-white/80 md:text-xs">
+                  <span>Communication / Content / Design</span>
+                  <span>Portfolio 2026</span>
+                </div>
 
-        {/* Experiencia Laboral */}
-        <div className="mt-5">
-          <h2 className="text-2xl font-semibold text-[#2C1D67]">
-            Experiencia Laboral
-          </h2>
-          <div className="md:grid md:grid-cols-3 gap-2">
-            {portfolioData.experience.map((job, index) => (
-              <div
-                key={index}
-                className="mt-4 bg-white rounded-lg p-4 mt-5 shadow-md border border-[#8C85F7]"
-              >
-                <h3 className="text-lg font-semibold text-[#2C1D67]">
-                  {job.role}
-                </h3>
-                <p className="text-gray-600">{job.company}</p>
-                <p className="text-gray-500">{job.duration}</p>
-                <ul className="list-disc ml-6 text-gray-700">
-                  {job.tasks.map((task, i) => (
-                    <li key={i}>{task}</li>
-                  ))}
-                </ul>
+                <div className="text-center">
+                  <p className="mb-2 text-xs uppercase tracking-[0.35em] text-white/70 md:text-sm">
+                    Design — Portfolio
+                  </p>
+                  <h1 className="font-serif text-5xl italic leading-none md:text-8xl text-white">
+                    {portfolioData.nickname}
+                  </h1>
+                  <p className="mt-3 text-sm tracking-[0.25em] text-white/80 md:text-base">
+                    {portfolioData.name}
+                  </p>
+                </div>
+
+                <div className="flex justify-between text-[11px] text-white/70 md:text-xs">
+                  <span>(Portafolio)</span>
+                  <span>{portfolioData.contact.email}</span>
+                </div>
               </div>
-            ))}
-          </div>
-        </div>
+            </div>
+          </section>
 
-        {/* Portafolio */}
-        <section className="mt-10">
-          <h2 className="text-2xl font-semibold text-[#2C1D67]">Portafolio</h2>
-          <p className="text-gray-500">Haz click en una imagen para verla.</p>
+          {/* ABOUT ME */}
+          <section className="relative">
+            <div className="grid gap-6 md:grid-cols-[1.4fr_0.9fr] items-start">
+              <div className="relative rounded-[24px] bg-[#f4efe8] p-8 shadow-xl border border-black/10">
+                <h2 className="mb-4 text-center font-serif text-4xl italic text-[#6f8fb7] md:text-5xl">
+                  Acerca de mí
+                </h2>
 
-          <div
-            className="
-            mt-4 relative
-            overflow-x-auto
-            rounded-xl border border-[#8C85F7] bg-white shadow-md
-            py-4
-            snap-x snap-mandatory
-          "
-          >
-            <div className="flex gap-4 px-4">
+                <div className="mx-auto max-w-2xl text-center text-base leading-8 text-[#2f2a26]">
+                  <p className="mb-4">
+                    Hola, soy <strong>{portfolioData.nickname}</strong>.
+                  </p>
+                  <p>{portfolioData.about}</p>
+                </div>
+              </div>
+
+              <div className="relative mx-auto w-[240px] rotate-[2deg] md:mt-8 md:w-[280px]">
+                <div className="relative z-0 overflow-hidden rounded-[16px] bg-white p-3 shadow-xl">
+                  <div className="relative aspect-[3/4] w-full overflow-hidden rounded-[10px]">
+                    <Image
+                      src={portfolioData.photo}
+                      alt={portfolioData.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* PROFILE BOARD */}
+          <section className="grid gap-6 md:grid-cols-[1fr_1.2fr]">
+            <div className="relative rounded-[24px] bg-[#f4efe8] p-6 shadow-xl border border-black/10">
+              <img
+                src="/assets/portfolio/binder-holes.svg"
+                alt="Perforaciones"
+                className="absolute left-0 top-0 h-full w-8 object-cover opacity-70"
+              />
+
+              <div className="pl-8">
+                <div className="mb-6 flex items-start gap-4">
+                  <div className="relative h-28 w-24 overflow-hidden rounded-md border border-black/10">
+                    <Image
+                      src={portfolioData.photo}
+                      alt={portfolioData.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+
+                  <div>
+                    <p className="text-sm uppercase tracking-[0.3em] text-[#7b7b7b]">
+                      Rol
+                    </p>
+                    <h3 className="font-serif text-3xl text-[#1f1b18]">
+                      {portfolioData.nickname}
+                    </h3>
+                    <p className="mt-2 text-sm text-[#4e4741]">
+                      Comunicación / Diseño / Social Media
+                    </p>
+                  </div>
+                </div>
+
+                <div className="space-y-4 text-sm leading-7 text-[#2f2a26]">
+                  <div>
+                    <p className="mb-1 text-xs uppercase tracking-[0.25em] text-[#7b7b7b]">
+                      Perfil
+                    </p>
+                    <p>{portfolioData.description}</p>
+                  </div>
+
+                  <div className="mt-6 rounded-[18px] border border-[#cfc4b8] bg-[#fffdf9] p-5 shadow-sm">
+                    <p className="text-[#4f729d]">
+                      <strong>Nombre:</strong> {portfolioData.name}
+                    </p>
+                    <p className="text-[#4f729d]">
+                      <strong>Tel:</strong> {portfolioData.contact.phone}
+                    </p>
+                    <p className="text-[#4f729d]">
+                      <strong>Email:</strong> {portfolioData.contact.email}
+                    </p>
+                    <p className="text-[#4f729d]">
+                      <strong>Instagram:</strong> @ThaniaZago
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-[24px] bg-[#f4efe8] p-8 shadow-xl border border-black/10">
+              <div className="space-y-8 text-center">
+                <div>
+                  <h3 className="mb-3 font-serif text-3xl italic text-[#6f8fb7]">
+                    Fortalezas
+                  </h3>
+                  <ul className="space-y-1 text-[#2f2a26]">
+                    {portfolioData.strengths.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="mb-3 font-serif text-3xl italic text-[#6f8fb7]">
+                    Software
+                  </h3>
+                  <ul className="space-y-1 text-[#2f2a26]">
+                    {portfolioData.software.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="mb-3 font-serif text-3xl italic text-[#6f8fb7]">
+                    Educación
+                  </h3>
+                  <p className="text-[#2f2a26]">{portfolioData.education.degree}</p>
+                  <p className="text-[#2f2a26]">{portfolioData.education.university}</p>
+                  <p className="text-[#2f2a26]">{portfolioData.education.years}</p>
+                </div>
+
+                <div>
+                  <h3 className="mb-3 font-serif text-3xl italic text-[#6f8fb7]">
+                    Skills
+                  </h3>
+                  <ul className="space-y-1 text-[#2f2a26]">
+                    {portfolioData.skills.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* EXPERIENCE */}
+          <section className="rounded-[24px] bg-[#f4efe8] p-6 md:p-8 shadow-xl border border-black/10">
+            <h2 className="mb-6 text-center font-serif text-4xl italic text-[#6f8fb7]">
+              Experiencia
+            </h2>
+
+            <div className="grid gap-4 md:grid-cols-2">
+              {portfolioData.experience.map((job, index) => (
+                <article
+                  key={`${job.company}-${index}`}
+                  className="rounded-[20px] border border-[#d9d1c7] bg-[#fffdf9] p-5 shadow-sm"
+                >
+                  <h3 className="text-lg font-semibold text-[#2b2b2b]">
+                    {job.role}
+                  </h3>
+                  <p className="text-sm text-[#5c5c5c]">{job.company}</p>
+                  <p className="mb-3 text-sm text-[#7c7c7c]">{job.duration}</p>
+
+                  <ul className="list-disc space-y-1 pl-5 text-sm text-[#333]">
+                    {job.tasks.map((task, i) => (
+                      <li key={i}>{task}</li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          {/* GALLERY */}
+          <section className="rounded-[24px] bg-[#f4efe8] p-6 md:p-8 shadow-xl border border-black/10">
+            <h2 className="mb-2 text-center font-serif text-4xl italic text-[#6f8fb7]">
+              Portafolio
+            </h2>
+            <p className="mb-6 text-center text-sm text-[#5f5a54]">
+              Da click en una imagen para verla más grande.
+            </p>
+
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
               {galleryImages.map((src, idx) => (
-                <div
+                <button
                   key={idx}
                   onClick={() => setSelectedImage(src)}
-                  className="
-                  group relative shrink-0
-                  aspect-[4/5]
-                  w-48 sm:w-60 md:w-72 lg:w-80
-                  overflow-hidden rounded-xl
-                  border border-[#8C85F7]/50
-                  bg-white shadow
-                  snap-start cursor-pointer
-                "
+                  className="group relative aspect-[4/5] overflow-hidden rounded-[18px] bg-white shadow-md"
                   title={`Trabajo ${idx + 1}`}
                 >
                   <Image
                     src={src}
                     alt={`Trabajo ${idx + 1}`}
                     fill
-                    className="
-                    object-cover
-                    transition-transform duration-300 ease-out
-                    group-hover:scale-110
-                  "
-                    sizes="(max-width: 640px) 12rem, (max-width: 768px) 15rem, (max-width: 1024px) 18rem, 20rem"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
-                </div>
+                </button>
               ))}
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Modal de imagen */}
+          {/* CONTACT */}
+          <section className="rounded-[24px] bg-[#f4efe8] p-6 md:p-8 shadow-xl border border-black/10">
+            <h2 className="mb-5 text-center font-serif text-4xl italic text-[#6f8fb7]">
+              Contacto
+            </h2>
+
+            <div className="flex flex-col items-center gap-4 text-[#2f2a26]">
+              <button
+                className="flex items-center gap-2 text-sm md:text-base"
+                onClick={() => copyToClipboard(portfolioData.contact.phone)}
+              >
+                <FaPhone />
+                <span>{portfolioData.contact.phone}</span>
+              </button>
+
+              <a
+                href={`mailto:${portfolioData.contact.email}`}
+                className="flex items-center gap-2 text-sm md:text-base"
+              >
+                <IoIosMail />
+                <span>{portfolioData.contact.email}</span>
+              </a>
+
+              <div className="mt-2 flex items-center gap-5 text-lg">
+                <a
+                  href={portfolioData.contact.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="hover:opacity-70"
+                >
+                  <FaInstagram />
+                </a>
+
+                <a
+                  href={portfolioData.contact.social.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="hover:opacity-70"
+                >
+                  <FaFacebook />
+                </a>
+
+                <a
+                  href={portfolioData.contact.social.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="X"
+                  className="hover:opacity-70"
+                >
+                  <FaSquareXTwitter />
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        {/* MODAL */}
         {selectedImage && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm"
-            onClick={() => setSelectedImage(null)} // Cierra al hacer click fuera
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 backdrop-blur-sm"
+            onClick={() => setSelectedImage(null)}
           >
             <div
-              className="relative w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] max-h-[85%] rounded-xl overflow-hidden shadow-lg"
-              onClick={(e) => e.stopPropagation()} // Evita cerrar al clickear dentro
+              className="relative w-full max-w-5xl overflow-hidden rounded-2xl bg-white p-3 shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
             >
-              {/* Botón de cierre */}
               <button
-                className="absolute top-3 right-3 bg-white rounded-full px-3 py-1 text-black shadow-md hover:bg-gray-200"
+                className="absolute right-3 top-3 z-10 rounded-full bg-white px-3 py-1 shadow"
                 onClick={() => setSelectedImage(null)}
               >
                 ✕
               </button>
 
-              <Image
-                src={selectedImage}
-                alt="Vista ampliada"
-                width={1200}
-                height={800}
-                className="object-contain w-full h-auto"
-              />
+              <div className="relative aspect-[16/10] w-full">
+                <Image
+                  src={selectedImage}
+                  alt="Vista ampliada"
+                  fill
+                  className="object-contain"
+                />
+              </div>
             </div>
           </div>
         )}
-        <h2 className="text-2xl font-semibold text-[#2C1D67] mt-5">Contacto</h2>
-
-        <div className="bg-white rounded-lg p-4 mt-5 shadow-md text-center flex flex-col justify-center border border-[#8C85F7]">
-          <div className="flex justify-center gap-4 mt-4">
-            <button
-              className="text-black mt-2 flex items-center space-x-2"
-              onClick={() => copyToClipboard(portfolioData.contact.phone)}
-            >
-              <FaPhone className="mr-2" />
-              {portfolioData.contact.phone}
-            </button>
-            <a
-              href={`mailto:${portfolioData.contact.email}`}
-              className="text-black mt-2 flex items-center space-x-2"
-            >
-              <IoIosMail className="mr-2" />
-              {portfolioData.contact.email}
-            </a>
-          </div>
-
-          <div className="flex justify-center gap-4 mt-4">
-            <a
-              href={portfolioData.contact.social.instagram}
-              className="text-pink-500 flex items-center"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaInstagram className="mr-2" />
-              Instagram
-            </a>
-            <a
-              href={portfolioData.contact.social.facebook}
-              className="text-blue-600 flex items-center"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaFacebook className="mr-2" />
-              Facebook
-            </a>
-            <a
-              href={portfolioData.contact.social.twitter}
-              className="text-black flex items-center"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaSquareXTwitter className="mr-2" />X / Twitter
-            </a>
-          </div>
-        </div>
-      </div>
+      </main>
     </>
   );
 }
