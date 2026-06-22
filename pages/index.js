@@ -73,11 +73,6 @@ export default function Portfolio() {
           <img className="thania-cutout" src={asset("yo.png")} alt="Thania trabajando en su computadora" />
         </section>
 
-        <footer id="contacto" className="contact">
-          <a href="mailto:lanyzago@gmail.com">lanyzago@gmail.com</a>
-          <span>Comunicación · Contenido · Diseño</span>
-        </footer>
-
         <nav className="dock" aria-label="Navegación principal">
           <a href="#sobre-mi" aria-label="Ir a Sobre mí" />
           <a href="#habilidades" aria-label="Ir a Habilidades" />
