@@ -40,6 +40,7 @@ export default function Portfolio() {
         <title>Portafolio | Thania Zago</title>
         <meta name="description" content="Portafolio de comunicación, contenido y diseño de Thania Zago." />
         <meta name="theme-color" content="#9bafe5" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
       </Head>
 
       <main className="portfolio-page">
