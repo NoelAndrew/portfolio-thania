@@ -4,11 +4,45 @@ import { useEffect, useState } from "react";
 const asset = (name) => `/assets/portfolioV2/${name}`;
 
 const projects = {
-  "Contenido y redes": ["/img/1.jpeg", "/img/4.jpeg", "/img/5.jpeg", "/img/9.jpeg"],
-  Fotografia: ["/img/2.jpeg", "/img/7.jpeg", "/img/8.jpeg", "/img/13.jpeg"],
-  "Diseno grafico": ["/img/3.jpeg", "/img/6.jpeg", "/img/10.jpeg", "/img/11.jpeg"],
-  "Otros proyectos": ["/img/12.jpeg", "/img/14.jpeg", "/img/15.jpeg", "/img/16.jpeg"],
-  Branding: ["/img/1.jpeg", "/img/6.jpeg", "/img/11.jpeg", "/img/14.jpeg"],
+  "Contenido y redes": [
+    "/img/1.jpeg",
+    "/img/4.jpeg",
+    "/img/5.jpeg",
+    "/img/9.jpeg",
+    "/img/2.jpeg",
+    "/img/7.jpeg",
+    "/img/8.jpeg",
+  ],
+  Fotografia: [
+    "/assets/photo/WhatsApp Image 2026-08-03 at 23.15.21.jpeg",
+    "/assets/photo/WhatsApp Image 2026-08-03 at 23.17.12.jpeg",
+    "/assets/photo/WhatsApp Image 2026-08-03 at 23.18.21.jpeg",
+    "/assets/photo/WhatsApp Image 2026-08-03 at 23.19.33.jpeg",
+    "/assets/photo/WhatsApp Image 2026-08-03 at 23.20.11.jpeg",
+    "/assets/photo/WhatsApp Image 2026-08-03 at 23.23.12.jpeg",
+    "/assets/photo/WhatsApp Image 2026-08-03 at 23.26.41.jpeg",
+    "/assets/photo/WhatsApp Image 2026-08-03 at 23.27.50.jpeg",
+    "/assets/photo/WhatsApp Image 2026-08-03 at 23.28.55.jpeg",
+  ],
+  "Diseno grafico": ["/img/3.jpeg", "/img/6.jpeg", "/img/10.jpeg", "/img/11.jpeg", "/img/1.jpeg",
+  "/img/4.jpeg",],
+  "Otros proyectos": [
+    "/img/Infografia creacion de Freebies Harry Styles.jpg.jpeg",
+    "/assets/2.- IA Carrusel/1.png",
+    "/assets/2.- IA Carrusel/2.png",
+    "/assets/2.- IA Carrusel/3.png",
+    "/assets/2.- IA Carrusel/4.png",
+    "/assets/2.- IA Carrusel/5.png",
+    "/assets/2.- IA Carrusel/6.png",
+    "/assets/Carrusel 1.-Feria de Puebla Viral 2026/1.png",
+    "/assets/Carrusel 1.-Feria de Puebla Viral 2026/2.png",
+    "/assets/Carrusel 1.-Feria de Puebla Viral 2026/3.png",
+    "/assets/Carrusel 1.-Feria de Puebla Viral 2026/4.png",
+    "/assets/Carrusel 1.-Feria de Puebla Viral 2026/5.png",
+    "/assets/Carrusel 1.-Feria de Puebla Viral 2026/6.png",
+  ],
+  Branding: ["/img/1.jpeg", "/img/6.jpeg", "/img/11.jpeg", "/img/14.jpeg", "/img/13.jpeg", "/img/12.jpeg",
+  "/img/14.jpeg","/img/16.jpeg"],
 };
 
 const folders = [
